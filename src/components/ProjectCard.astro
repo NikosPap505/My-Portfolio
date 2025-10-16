@@ -1,0 +1,14 @@
+---
+//src/components/ProjectCard.astro
+import { Image } from "astro:assets";
+
+export interface Props {
+  title: string;
+  description: string;
+  imageSrc: ImageMetadata;
+  tags: string;
+  githubUrl: string;
+}
+
+const { title, description, tags, githubUrl } = Astro.props;
+---

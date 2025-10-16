@@ -1,0 +1,42 @@
+---
+// src/components/Footer.astro
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+
+const currentYear = new Date().getFullYear();
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/NikosPap505",
+    icon: GithubIcon,
+  },
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/nikos-papoutsis/",
+    icon: LinkedinIcon,
+  },
+];
+---
+
+<footer class="bg-gray-800 text-white p-4">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-center space-x-6">
+      {
+        socialLinks.map(({ name, href, icon: IconComponent }) => (
+          <a
+            href={href}
+            class="text-gray-400 hover:text-white transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={name}
+          >
+            <IconComponent />
+          </a>
+        ))
+      }
+    </div>
+    <p class="text-center mt-4 text-gray-400">
+      © {currentYear} Nikos Papoutsis. All rights reserved.
+    </p>
+  </div>
+</footer>

@@ -2,121 +2,134 @@
 //src src/components/Experience.astro
 ---
 
-<div class="w-full max-w-[985.203px] h-[379px] mx-auto my-10 px=4">
-  <div class="container">
+<div class="max-w-3xl mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold text-white mb-6 text-center">Experience</h2>
     <div
-      class="bg-slate-800/50 backdrop-blur-sm border-slate-700 rounded-lg p-6 shadow-lg"
+        class="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-lg p-6 shadow-lg"
     >
-      <h2 class="text-3xl font-bold text-white mb-6 text-center md:text-left">
-        Experience
-      </h2>
-
-      <div class="flex border-b border-slate-600 mb-6">
-        <button
-          data-tab-target="#work"
-          class="tab-btn flex-1 text-center py-2 px-4 font-semibold text-white border-b-2 border-purple-600 transition-colors"
-          >Work</button
-        >
-        <button
-          data-tab-target="#studies"
-          class="tab-btn flex-1 text-center py-2 px-4 font-semibold text-white border-b-2 border-purple-600 transition-colors"
-          >Studies
-        </button>
-      </div>
-
-      <div>
-        <!-- work -->
-        <div id="work" class="tab-pane transition-opacity duration-300">
-          <div class="mb-4">
-            <div class="flex justify-between items-basline">
-              <h3 class="text-xl font-semibold text-white">
-                NetMechanics S.A. (Intership)
-              </h3>
-              <p class="text-xs text-slate-400 mb-3">Sep 2023 - Feb 2024</p>
-            </div>
-            <p class="text-sm text-purple-400 mb-3">Customer Care</p>
-            <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
-              <li>
-                Assisted clients with technical and service-related issues using
-                CRM tools.
-              </li>
-              <li>
-                Reported recurring issues and collaborated with developers to
-                improve workflows.
-              </li>
-              <li>
-                Documented customer requirements contributing to application
-                improvement discussions.
-              </li>
-              <li>
-                Strengthened communication, teamwork, and problem-solving skills
-                in a fast-paced environment
-              </li>
-            </ul>
-          </div>
+        <div class="flex border-b border-slate-600 mb-6">
+            <button
+                data-tab-target="#work"
+                class="tab-btn flex-1 text-center py-2 px-4 font-semibold text-white border-b-2 border-purple-600 transition-colors"
+            >
+                Work
+            </button>
+            <button
+                data-tab-target="#studies"
+                class="tab-btn flex-1 text-center py-2 px-4 font-semibold text-slate-400 border-b-2 border-transparent hover:text-white transition-colors"
+            >
+                Studies
+            </button>
         </div>
-        <!-- studies -->
-        <div
-          id="studies"
-          class="tab-pane hidden transition-opacity duration-300"
-        >
-          <div class="mb-4">
-            <div class="flex justify-between items-baseline">
-              <h3 class="text-xl font-semibold text-white">
-                University of Thessaly
-              </h3>
-              <p class="text-xs text-slate-400">Sep 2017 - Jul 2025</p>
+
+        <div class="min-h-[320px] md:min-h-[220px]">
+            <div id="work" class="tab-pane transition-opacity duration-300">
+                <div class="mb-4">
+                    <div
+                        class="flex flex-col md:flex-row md:justify-between md:items-baseline"
+                    >
+                        <h3
+                            class="text-xl font-semibold text-white mb-1 md:mb-0"
+                        >
+                            NetMechanics S.A. (Internship)
+                        </h3>
+                        <p class="text-sm text-slate-400">
+                            Sep 2023 - Feb 2024
+                        </p>
+                    </div>
+                    <p class="text-md text-purple-400 my-3">Customer Care</p>
+                    <ul
+                        class="list-disc list-inside space-y-2 text-slate-300 text-sm"
+                    >
+                        <li>
+                            Assisted clients with technical and service-related
+                            issues using CRM tools.
+                        </li>
+                        <li>
+                            Reported recurring issues and collaborated with
+                            developers to improve workflows.
+                        </li>
+                        <li>
+                            Documented customer requirements contributing to
+                            application improvement discussions.
+                        </li>
+                        <li>
+                            Strengthened communication, teamwork, and
+                            problem-solving skills in a fast-paced environment.
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-sm text-purple-400 mb-3">Computer Science</p>
-            <p class="text-slate-300 text-sm">
-              <span class="font-semibold text-white">Thesis:</span> Developed a web-based
-              Assurance Modeler Platform using HTML, CSS, JavaScript and Tailwind
-              CSS to support the creation and visualization of structured assurance
-              cases.
-            </p>
-          </div>
+
+            <div
+                id="studies"
+                class="tab-pane hidden transition-opacity duration-300"
+            >
+                <div class="mb-4">
+                    <div
+                        class="flex flex-col md:flex-row md:justify-between md:items-baseline"
+                    >
+                        <h3
+                            class="text-xl font-semibold text-white mb-1 md:mb-0"
+                        >
+                            University of Thessaly
+                        </h3>
+                        <p class="text-sm text-slate-400">
+                            Sep 2017 - Jul 2025
+                        </p>
+                    </div>
+                    <p class="text-md text-purple-400 my-3">Computer Science</p>
+                    <p class="text-slate-300 text-sm">
+                        <span class="font-semibold text-white">Thesis:</span>
+                        Developed a web-based Assurance Modeler Platform using HTML,
+                        CSS, JavaScript and Tailwind CSS to support the creation
+                        and visualization of structured assurance cases.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <script>
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const tabPanes = document.querySelectorAll(".tab-pane");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanes = document.querySelectorAll(".tab-pane");
 
-  function setActiveTab(buttonToActivate: HTMLElement) {
-    const targetPaneId = buttonToActivate.getAttribute("data-tab-target");
+    function setActiveTab(buttonToActivate: HTMLElement) {
+        const targetPaneId = buttonToActivate.getAttribute("data-tab-target");
 
-    // Update all buttons
-    tabButtons.forEach((btn) => {
-      btn.classList.remove("text-white", "border-purple-600");
-      btn.classList.add("text-slate-400", "border-transparent");
+        // Update all buttons
+        tabButtons.forEach((btn) => {
+            btn.classList.remove("text-white", "border-purple-600");
+            btn.classList.add("text-slate-400", "border-transparent");
+        });
+
+        // Activate the target button
+        buttonToActivate.classList.add("text-white", "border-purple-600");
+        buttonToActivate.classList.remove(
+            "text-slate-400",
+            "border-transparent",
+        );
+
+        // Update all panes
+        tabPanes.forEach((pane) => {
+            if (`#${pane.id}` === targetPaneId) {
+                pane.classList.remove("hidden");
+            } else {
+                pane.classList.add("hidden");
+            }
+        });
+    }
+
+    // Set the initial active tab when the page loads
+    if (tabButtons.length > 0) {
+        setActiveTab(tabButtons[0] as HTMLElement);
+    }
+
+    // Add click listeners
+    tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            setActiveTab(button as HTMLElement);
+        });
     });
-
-    // Activate the target button
-    buttonToActivate.classList.add("text-white", "border-purple-600");
-    buttonToActivate.classList.remove("text-slate-400", "border-transparent");
-
-    // Update all panes
-    tabPanes.forEach((pane) => {
-      if (`#${pane.id}` === targetPaneId) {
-        pane.classList.remove("hidden");
-      } else {
-        pane.classList.add("hidden");
-      }
-    });
-  }
-
-  // Set the initial active tab when the page loads
-  if (tabButtons.length > 0) {
-    setActiveTab(tabButtons[0] as HTMLElement);
-  }
-
-  // Add click listeners
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      setActiveTab(button as HTMLElement);
-    });
-  });
 </script>

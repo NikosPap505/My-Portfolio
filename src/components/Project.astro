@@ -6,37 +6,37 @@ import cmsImage from "../assets/cmsImage.jpg";
 import portfolioImage from "../assets/this-project.jpg";
 
 const projectData = [
-  {
-    title: "Assurance Modeler Platform",
-    description:
-      "A web-based platform developed for my thesis to support the creation and visualization of structured assurance cases.",
-    imageSrc: thesisImage,
-    tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/NikosPap505/Assurance-Modeler-Platform",
-  },
-  {
-    title: "Headless CMS (In Progress)",
-    description:
-      "An ongoing project to build a lightweight, developer-focused headless CMS using Node.js, Express, and a modern frontend framework.",
-    imageSrc: cmsImage,
-    tags: ["Node.js", "Express", "React", "MongoDB"],
-    liveUrl: undefined,
-    githubUrl: "#",
-  },
-  {
-    title: "This Portfolio Website",
-    description:
-      "The site you are currently on. A fully responsive personal portfolio built with Astro and Tailwind CSS to showcase my skills and projects.",
-    imageSrc: portfolioImage,
-    tags: ["Astro", "Tailwind CSS", "TypeScript"],
-    githubUrl: "https://github.com/NikosPap505/My-Website",
-  },
+    {
+        title: "Assurance Modeler Platform",
+        description:
+            "A web-based platform developed for my thesis to support the creation and visualization of structured assurance cases.",
+        imageSrc: thesisImage,
+        tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+        githubUrl: "https://github.com/NikosPap505/Assurance-Modeler-Platform",
+    },
+    {
+        title: "Headless CMS (In Progress)",
+        description:
+            "An ongoing project to build a lightweight, developer-focused headless CMS using Node.js, Express, and a modern frontend framework.",
+        imageSrc: cmsImage,
+        tags: ["Node.js", "Express", "React", "MongoDB"],
+        liveUrl: undefined,
+        githubUrl: "#",
+    },
+    {
+        title: "This Portfolio Website",
+        description:
+            "The site you are currently on. A fully responsive personal portfolio built with Astro and Tailwind CSS to showcase my skills and projects.",
+        imageSrc: portfolioImage,
+        tags: ["Astro", "Tailwind CSS", "TypeScript"],
+        githubUrl: "https://github.com/NikosPap505/My-Website",
+    },
 ];
 ---
 
-<section class="container mx-auto my-16 px-4" id="projects">
-  <h2 class="text-3xl font-bold text-white mb-8 text-center">My Projects</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {projectData.map((project) => <ProjectCard {...project} />)}
-  </div>
+<section class="max-w-7xl mx-auto px-4 py-8" id="projects">
+    <h2 class="text-3xl font-bold text-white mb-8 text-center">My Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projectData.map((project) => <ProjectCard {...project} />)}
+    </div>
 </section>

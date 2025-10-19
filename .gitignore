@@ -17,8 +17,21 @@ pnpm-debug.log*
 .env
 .env.production
 
-# macOS-specific files
-.DS_Store
 
-# jetbrains setting folder
+
+# IDE settings
+.vscode/
 .idea/
+
+# Lock files (optional - uncomment if you don't want to commit them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

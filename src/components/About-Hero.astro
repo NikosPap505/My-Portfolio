@@ -1,0 +1,35 @@
+---
+//src/components/About-Hero.astro
+import AboutImage from "../assets/IMG_8496.jpg";
+import { Image } from "astro:assets";
+---
+
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+    <div class="flex-1 text-center md:text-left">
+      <h2 class="text-green-700 text-5xl font-bold">About Me</h2>
+      <p class="text-xl text-white mt-4">
+        Hello! If you're here, you're probably interested in learning more about
+        me.
+      </p>
+      <p class="text-lg text-slate-400 mt-2">
+        I'm a graduate Computer Science student at the University of Thessaly,
+        and my goal is to become a proficient software engineer. This website is
+        my way of implementing what I've learned and putting it into practice.
+      </p>
+      <p class="text-lg text-slate-400 mt-2">
+        While I'm currently more of a frontend developer, I am taking a
+        dedicated course to expand my skills and transition into a full-stack
+        role. I'm eager to tackle new challenges and build complete, end-to-end
+        applications.
+      </p>
+    </div>
+    <div class="flex-1 flex justify-center md:justify-end">
+      <Image
+        src={AboutImage}
+        alt="Nikos Papoutsis"
+        class="w-70 h-70 sm:w-80 sm:h-80 rounded-2xl object-cover border-4 border-slate-700 shadow-lg mt-8 duration-300 transition-transform ease-in-out hover:border-green-700 hover:scale-105"
+      />
+    </div>
+  </div>
+</div>

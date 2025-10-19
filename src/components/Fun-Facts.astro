@@ -1,0 +1,47 @@
+---
+//src/components/Fun-Facts.astro
+import BasketBallIcon from "../components/icons/BasketBall.astro";
+import CookIcon from "../components/icons/Cook.astro";
+import TrailIcon from "../components/icons/Trail.astro";
+---
+
+<div class="bg-slate-700 mt-8">
+    <div class="max-w-7xl mx-auto px-4 py-8 lg:px-8 text-center">
+        <h2 class="text-5xl font-bold text-white m-8 text-center">
+            Fun Facts <span class="text-green-700">About Me</span>
+        </h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group">
+                <div
+                    class="text-4xl lg:text-5xl font-bold flex items-center justify-center mb-2"
+                >
+                    <BasketBallIcon />
+                </div>
+                <div class="rounded-2xl text-sm">Hoop Lover</div>
+            </div>
+            <div class="group">
+                <div class="text-4xl lg:text-5xl font-bold text-green-700 mb-2">
+                    ∞
+                </div>
+                <div class="rounded-2xl text-sm">Cups of Coffee</div>
+            </div>
+
+            <div class="group">
+                <div
+                    class="text-4xl lg:text-5xl font-bold flex items-center justify-center mb-2"
+                >
+                    <TrailIcon />
+                </div>
+                <div class="rounded-2xl text-sm">Adventure Seeker</div>
+            </div>
+            <div class="group">
+                <div
+                    class="text-4xl lg:text-5xl font-bold flex items-center justify-center mb-2"
+                >
+                    <CookIcon />
+                </div>
+                <div class="rounded-2xl text-sm">Cooking Enthusiast</div>
+            </div>
+        </div>
+    </div>
+</div>

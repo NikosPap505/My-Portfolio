@@ -1,0 +1,73 @@
+---
+// src/components/Contact.astro
+import ContactCard from "./ContactCard.astro";
+import MailIcon from "./icons/MailIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import PhoneIcon from "./icons/PhoneIcon.astro";
+import ContactForm from "./ContactForm.astro";
+
+const contactData = [
+  {
+    title: "Email",
+    description: "The best way to reach me directly.",
+    href: "mailto:papoutsis98@hotmail.com",
+    linkText: "Send an Email",
+    IconComponent: MailIcon,
+    IconColor: "bg-blue-600",
+  },
+  {
+    title: "LinkedIn",
+    description: "Connect with me on a professional level.",
+    href: "https://www.linkedin.com/in/nikos-papoutsis/",
+    linkText: "View Profile",
+    IconComponent: LinkedinIcon,
+    IconColor: "bg-blue-700",
+  },
+  {
+    title: "GitHub",
+    description: "Check out my code, projects, and contributions.",
+    href: "https://github.com/NikosPap505",
+    linkText: "View Projects",
+    IconComponent: GithubIcon,
+    IconColor: "bg-gray-600",
+  },
+  {
+    title: "Phone",
+    description: "Call me at +30 6972575821",
+    linkText: "Call Me",
+    href: "tel:+306972575821",
+    IconComponent: PhoneIcon,
+    IconColor: "bg-green-600",
+  },
+];
+---
+
+<div class="text-center">
+  <h2 class="text-4xl font-bold text-green-700 mb-8 underline">Contact Me</h2>
+  <p class="text-lg text-white mb-8">Ready to start your next project?</p>
+</div>
+<div class="max-w-7xl mx-auto px-4 py-16" id="contact">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <div class="animate-fade-in-left">
+        <ContactForm />
+      </div>
+
+      <div class="animate-fade-in-right">
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-8 text-center">
+          Get in touch
+        </h2>
+        <div>
+          {
+            contactData.map((contact) => (
+              <div class="mb-6">
+                <ContactCard {...contact} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

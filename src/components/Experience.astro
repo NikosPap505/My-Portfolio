@@ -10,7 +10,7 @@
         <div class="flex border-b border-slate-600 mb-6">
             <button
                 data-tab-target="#work"
-                class="tab-btn flex-1 text-center py-2 px-4 font-semibold text-white border-b-2 border-purple-600 transition-colors"
+                class="tab-btn flex-1 text-center py-2 px-4 font-semibold text-white border-b-2 border-green-600 transition-colors"
             >
                 Work
             </button>
@@ -37,7 +37,7 @@
                             Sep 2023 - Feb 2024
                         </p>
                     </div>
-                    <p class="text-md text-purple-400 my-3">Customer Care</p>
+                    <p class="text-md text-green-400 my-3">Customer Care</p>
                     <ul
                         class="list-disc list-inside space-y-2 text-slate-300 text-sm"
                     >
@@ -78,7 +78,7 @@
                             Sep 2017 - Jul 2025
                         </p>
                     </div>
-                    <p class="text-md text-purple-400 my-3">Computer Science</p>
+                    <p class="text-md text-green-400 my-3">Computer Science</p>
                     <p class="text-slate-300 text-sm">
                         <span class="font-semibold text-white">Thesis:</span>
                         Developed a web-based Assurance Modeler Platform using HTML,
@@ -98,20 +98,17 @@
     function setActiveTab(buttonToActivate: HTMLElement) {
         const targetPaneId = buttonToActivate.getAttribute("data-tab-target");
 
-        // Update all buttons
         tabButtons.forEach((btn) => {
-            btn.classList.remove("text-white", "border-purple-600");
+            btn.classList.remove("text-white", "border-green-600");
             btn.classList.add("text-slate-400", "border-transparent");
         });
 
-        // Activate the target button
-        buttonToActivate.classList.add("text-white", "border-purple-600");
+        buttonToActivate.classList.add("text-white", "border-green-600");
         buttonToActivate.classList.remove(
             "text-slate-400",
             "border-transparent",
         );
 
-        // Update all panes
         tabPanes.forEach((pane) => {
             if (`#${pane.id}` === targetPaneId) {
                 pane.classList.remove("hidden");
@@ -121,12 +118,10 @@
         });
     }
 
-    // Set the initial active tab when the page loads
     if (tabButtons.length > 0) {
         setActiveTab(tabButtons[0] as HTMLElement);
     }
 
-    // Add click listeners
     tabButtons.forEach((button) => {
         button.addEventListener("click", () => {
             setActiveTab(button as HTMLElement);

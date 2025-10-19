@@ -1,0 +1,49 @@
+---
+//src/components/Contact.astro
+
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  linkText: string;
+  IconComponent: any;
+  IconColor?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  linkText,
+  IconComponent,
+  IconColor = "bg-green-700",
+} = Astro.props;
+---
+
+<div
+  class="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-4 flex flex-col transition-transform duration-300 hover:scale-105 hover:border-green-600"
+>
+  <div class="flex items-start space-x-4">
+    <div
+      class=`w-12 h-12 ${IconColor} rounded-xl flex items-center justify-center text-white flex-shrink-0`
+    >
+      <IconComponent />
+    </div>
+    <div class="flex-1 flex flex-col">
+      <h3 class="text-lg font-semibold text-white mb-1">
+        {title}
+      </h3>
+      <p class="text-slate-400 mb-2 flex-grow">
+        {description}
+      </p>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white hover:text-green-600 transition-colors duration-300 font-medium mt-auto"
+      >
+        {linkText} →
+      </a>
+    </div>
+  </div>
+</div>

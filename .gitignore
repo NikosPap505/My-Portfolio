@@ -23,10 +23,10 @@ pnpm-debug.log*
 .vscode/
 .idea/
 
-# Lock files (optional - uncomment if you don't want to commit them)
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+Lock files 
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # OS generated files
 .DS_Store

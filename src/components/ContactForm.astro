@@ -4,64 +4,140 @@
 
 <!-- <div class="max-w-3xl mx-auto px-4 py-8"> -->
 <h2 class="text-2xl lg:text-4xl font-bold text-white mb-8 text-center">
-  Send me a message
+    Send me a message
 </h2>
 <div class="bg-slate-700 rounded-2xl text-white pt-4">
-  <form
-    action="https://formspree.io/f/mjkazkey"
-    method="POST"
-    class="backdrop-blur-sm border-green-600 rounded-2xl p-8"
-  >
-    <div class="space-y-6">
-      <div class="mb-6">
-        <label for="name" class="block mb-2 text-sm font-medium text-slate-300">
-          Your Name
-        </label>
+    <form
+        id="contact-form"
+        action="https://formspree.io/f/mjkazkey"
+        method="POST"
+        class="backdrop-blur-sm border-green-600 rounded-2xl p-8"
+    >
+        <div class="space-y-6">
+            <div class="mb-6">
+                <label
+                    for="name"
+                    class="block mb-2 text-sm font-medium text-slate-300"
+                >
+                    Your Name
+                </label>
 
-        <input
-          type="text"
-          id="name"
-          name="name"
-          class="w-full p-3 border border-slate-700 rounded-lg bg-slate-800 text-slate-300 text-base transition-all duration-300 ease-in-out focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500"
-          placeholder="Your Full Name"
-        />
-      </div>
-      <div class="mb-6">
-        <label for="email" class="block mb-2 text-sm font-medium text-slate-300"
-          >E-mail</label
-        >
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          class="w-full p-3 border border-slate-700 rounded-lg bg-slate-800 text-slate-300 text-base transition-all duration-300 ease-in-out focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500"
-          placeholder="Email Address"
-        />
-      </div>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full p-3 border border-slate-700 rounded-lg bg-slate-800 text-slate-300 text-base transition-all duration-300 ease-in-out focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500"
+                    placeholder="Your Full Name"
+                    required
+                />
+                <div id="name-error" class="text-red-600 text-sm"></div>
+            </div>
+            <div class="mb-6">
+                <label
+                    for="email"
+                    class="block mb-2 text-sm font-medium text-slate-300"
+                    >E-mail</label
+                >
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full p-3 border border-slate-700 rounded-lg bg-slate-800 text-slate-300 text-base transition-all duration-300 ease-in-out focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500"
+                    placeholder="Email Address"
+                />
+                <div id="email-error" class="text-red-600 text-sm"></div>
+            </div>
 
-      <div class="mb-6">
-        <label
-          for="message"
-          class="block mb-2 text-sm font-medium text-slate-300"
-        >
-          Your Message
-        </label>
+            <div class="mb-6">
+                <label
+                    for="message"
+                    class="block mb-2 text-sm font-medium text-slate-300"
+                >
+                    Your Message
+                </label>
 
-        <textarea
-          id="message"
-          name="message"
-          class="w-full p-3 border border-slate-700 rounded-lg bg-slate-800 text-slate-300 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500"
-          placeholder="Write your message"></textarea>
-      </div>
-      <div class="text-center">
-        <button
-          type="submit"
-          class="bg-green-700 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-700"
-        >
-          Send Message
-        </button>
-      </div>
-    </div>
-  </form>
+                <textarea
+                    id="message"
+                    name="message"
+                    class="w-full p-3 border border-slate-700 rounded-lg bg-slate-800 text-slate-300 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500"
+                    placeholder="Write your message"
+                    required></textarea>
+                <div id="message-error" class="text-red-600 text-sm"></div>
+            </div>
+            <div class="text-center">
+                <button
+                    type="submit"
+                    class="bg-green-700 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-700"
+                >
+                    Send Message
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
+
+<script>
+    import { z } from "astro/zod";
+
+    const ContactSchema = z.object({
+        name: z
+            .string()
+            .min(2, { message: "Name must be at least 2 characters long" })
+            .max(100),
+        email: z
+            .string()
+            .email({ message: "Please enter a valid email address" }),
+        message: z
+            .string()
+            .min(10, { message: "Message must be at least 10 characters long" })
+            .max(1000),
+    });
+
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const nameInput = form.getElementById("name") as HTMLInputElement;
+    const emailInput = form.getElementById("email") as HTMLInputElement;
+    const messageInput = form.getElementById("message") as HTMLTextAreaElement;
+
+    const nameError = document.getElementById("name-error") as HTMLDivElement;
+    const emailError = document.getElementById("email-error") as HTMLDivElement;
+    const messageError = document.getElementById(
+        "message-error",
+    ) as HTMLDivElement;
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        messageError.textContent = "";
+        nameInput.classList.remove("border-red-500");
+        emailInput.classList.remove("border-red-500");
+        messageInput.classList.remove("border-red-500");
+
+        const formData = new FormData(form);
+        const result = ContactSchema.safeParse(
+            Object.fromEntries(formData.entries()),
+        );
+
+        if (result.success) {
+            form.submit();
+        } else {
+            for (const error of result.error.errors) {
+                const field = error.path[0];
+                const message = error.message;
+
+                if (field === "name") {
+                    nameError.textContent = message;
+                    nameInput.classList.add("border-red-500");
+                } else if (field === "email") {
+                    emailError.textContent = message;
+                    emailInput.classList.add("border-red-500");
+                } else if (field === "message") {
+                    messageError.textContent = message;
+                    messageInput.classList.add("border-red-500");
+                }
+            }
+        }
+    });
+</script>
